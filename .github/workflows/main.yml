@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
+          toolchain: ${{ matrix.rust }}
+          components: rustfmt
           fetch-depth: 0
       - name: Add remote 
         env:
